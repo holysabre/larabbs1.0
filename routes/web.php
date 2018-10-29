@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//废弃
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::get('/','PagesController@root')->name('root');
