@@ -23,6 +23,11 @@
                     <li><a href="{{ route('register') }}">注册</a></li>
                     <li><a href="{{ route('login') }}">登录</a></li>
                 @else
+                    <li>
+                        <a href="{{ route('topics.create') }}">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        </a>
+                    </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown">
                             <span class="user-avatar pull-left" style="margin-right:8px; margin-top:-5px;">
