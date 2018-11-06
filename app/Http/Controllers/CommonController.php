@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class CommonController extends Controller
 {
+    /**
+     * @param Request $request
+     * @param ImageUploadHandler $uploader
+     * @return array
+     * 公共的图片上传
+     */
     public function editorUpload(Request $request, ImageUploadHandler $uploader)
     {
         $return = [
