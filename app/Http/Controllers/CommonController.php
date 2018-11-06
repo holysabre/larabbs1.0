@@ -9,25 +9,26 @@ class CommonController extends Controller
 {
     public function editorUpload(Request $request, ImageUploadHandler $uploader)
     {
+        $return = [
+            'success' => false,
+            'msg' => '图片上传失败',
+            'file_path' => '',
+        ];
         $folder = $request->folder ? : 'default';
         $prefix = $request->prefix ? : 'default';
         $max_width = $request->max_width ? : false;
-        $result = $uploader->save($request->upload_file, $folder, $prefix, $max_width);
-        if($result)
+        if($file = $request->upload_file)
         {
-            return response()->json([
-                'success' => true,
-                'msg' => 'success',
-                'file_path' => $result['path'],
-            ],200);
+            $result = $uploader->save($file, $folder, $prefix, $max_width);
+            if($result)
+            {
+                $return = [
+                    'success' => true,
+                    'msg' => 'success',
+                    'file_path' => $result['path'],
+                ];
+            }
         }
-        else
-        {
-            return response()->json([
-                'success' => false,
-                'msg' => 'fail',
-                'file_path' => '',
-            ],200);
-        }
+        return $return;
     }
 }

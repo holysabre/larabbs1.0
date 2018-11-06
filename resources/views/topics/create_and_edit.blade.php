@@ -75,9 +75,10 @@
                     url: '{{ route('common.editor_upload') }}',
                     params: { _token:'{{ csrf_token() }}',prefix:'topics',folder:'topics'},
                     fileKey: 'upload_file',
-                    connectionCount: 3,
+                    connectionCount: 5,
                     leaveConfirm: 'Uploading is in progress, are you sure to leave this page?',
-                }
+                },
+                pasteImage:true,//支持粘贴板上传
             });
         });
     </script>
