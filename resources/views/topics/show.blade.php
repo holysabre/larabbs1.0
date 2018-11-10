@@ -33,6 +33,10 @@
                         {{ $topic->title }}
                     </h1>
 
+                    <h3 class="text-center">
+                        {{ $topic->slug }}
+                    </h3>
+
                     <div class="article-meta text-center">
                         {{ $topic->created_at->diffForHumans() }}
                         ⋅
