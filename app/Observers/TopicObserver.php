@@ -11,15 +11,6 @@ use App\Handlers\TranslateHandler;
 
 class TopicObserver
 {
-    public function creating(Topic $topic)
-    {
-        //
-    }
-
-    public function updating(Topic $topic)
-    {
-        //
-    }
 
     public function saving(Topic $topic)
     {

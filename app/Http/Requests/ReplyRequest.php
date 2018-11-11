@@ -12,15 +12,26 @@ class ReplyRequest extends Request
             case 'POST':
             {
                 return [
-                    // CREATE ROLES
+                    // UPDATE ROLES
+                    'content' => 'required|min:6',
+                    'topic_id' => 'required|numeric'
                 ];
             }
             // UPDATE
             case 'PUT':
+            {
+                return [
+                    // UPDATE ROLES
+                    'content' => 'required|min:6',
+                    'topic_id' => 'required|numeric'
+                ];
+            }
             case 'PATCH':
             {
                 return [
                     // UPDATE ROLES
+                    'content' => 'required|min:6',
+                    'topic_id' => 'required|numeric'
                 ];
             }
             case 'GET':
@@ -35,7 +46,7 @@ class ReplyRequest extends Request
     public function messages()
     {
         return [
-            // Validation messages
+            'content.min' => '内容必须至少六个字符',
         ];
     }
 }
