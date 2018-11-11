@@ -42,7 +42,7 @@ class TopicsController extends Controller
         $topic->fill($request->all());
         $topic->user_id = Auth::id();
         $topic->save();
-		return redirect()->route($topic->link(), $topic->id)->with('success', '发布成功');
+		return redirect()->to($topic->link())->with('success', '发布成功');
 	}
 
 	public function edit(Topic $topic)
@@ -57,7 +57,7 @@ class TopicsController extends Controller
 		$this->authorize('update', $topic);
 		$topic->update($request->all());
 
-		return redirect()->route($topic->link(), $topic->id)->with('success', '更新成功');
+		return redirect()->to($topic->link())->with('success', '更新成功');
 	}
 
 	public function destroy(Topic $topic)
