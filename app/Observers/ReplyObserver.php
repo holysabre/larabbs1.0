@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Reply;
+use App\Notifications\TopicReplied;
 use Auth;
 
 // creating, created, updating, updated, saving,
@@ -18,8 +19,13 @@ class ReplyObserver
 
     public function created(Reply $reply)
     {
+        $topic = $reply->topic;
         //话题的回复数量+1
-        $reply->topic->increment('reply_count', 1);
-        $reply->topic->last_reply_user_id = Auth::id();
+        $topic->increment('reply_count', 1);
+        //保存最后一个回复的用户id
+        $topic->last_reply_user_id = Auth::id();
+        $topic->save();
+        //当回复成功时 通知用户
+        $topic->user->notify(new TopicReplied($reply));
     }
 }
