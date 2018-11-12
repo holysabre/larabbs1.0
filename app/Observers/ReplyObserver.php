@@ -31,7 +31,10 @@ class ReplyObserver
 
     public function deleted(Reply $reply)
     {
+        //判断回复数量大于0
         //删除回复时，话题的回复数量-1
-        $reply->topic->decrement('reply_count', 1);
+        if($reply->topic->reply_count > 0){
+            $reply->topic->decrement('reply_count', 1);
+        }
     }
 }
