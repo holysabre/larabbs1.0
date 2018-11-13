@@ -101,4 +101,24 @@ class User extends Authenticatable
         $this->save();
         $this->unreadNotifications()->martAsRead();
     }
+
+    //修改器 修改密码时 给密码加密
+    public function setPasswordAttribute($value)
+    {
+        //当密码的长度没有60的时候，认为没有进行加密
+        if(strlen($value) != 60){
+            $value = bcrypt($value);
+        }
+        $this->attributes['password'] = $value;
+    }
+
+    //修改头像 补全地址
+    public function setAvatarAttribute($value)
+    {
+        //如果头像不是以http开头的话 则认为需要补全图片路径
+        if(!starts_with($value,'http')){
+            $value = config('app.url').'/uploads/images/avatars/'.$value;
+        }
+        $this->attributes['avatar'] = $value;
+    }
 }

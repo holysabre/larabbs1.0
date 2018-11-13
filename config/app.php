@@ -168,6 +168,7 @@ return [
          * Package Service Providers...
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Frozennode\Administrator\AdministratorServiceProvider::class,
 
         /*
          * Application Service Providers...

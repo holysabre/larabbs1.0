@@ -21,7 +21,7 @@ return array(
      *
      * @type string
      */
-    'title' => env(APP_NAME,'larabbs'),
+    'title' => env('APP_NAME','larabbs'),
 
     /*
      * The path to your model config directory
@@ -35,7 +35,7 @@ return array(
      *
      * @type string
      */
-    'settings_config_path' => config_path('administrator/settings'),
+    'settings_config_path' => config_path('administrator'),
 
     /*
      * The menu structure of the site. For models, you should either supply the name of a model config file or an array of names of model config
@@ -59,9 +59,12 @@ return array(
      *	)
      */
     'menu' => [
-        '用户与权限' => [
-            'users',
+        '用户管理' => [
+            'users' // 对应需要创建的文件：`config/administrator/users.php`
         ],
+        '内容管理' => [
+            'posts' // 对应需要创建的文件：`config/administrator/posts.php`
+        ]
     ],
 
     /*
