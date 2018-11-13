@@ -35,4 +35,5 @@ class TopicObserver
         //当删除话题时，同时删除该话题下所有的回复
         DB::table('replies')->where('topic_id', $topic->id)->delete();
     }
+
 }
