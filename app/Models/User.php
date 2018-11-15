@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\RecordLastActiveHelper;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Auth;
@@ -49,6 +50,7 @@ class User extends Authenticatable
     }
     use HasRoles;
     use Traits\ActiveUserHelper;
+    use Traits\RecordLastActiveHelper;
 
     /**
      * The attributes that are mass assignable.
