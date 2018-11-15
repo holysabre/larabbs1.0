@@ -22,6 +22,15 @@
                     </a>
                 @endforeach
 
+                <div class="text-center">资源推荐</div>
+                <hr>
+                @foreach ($links as $link)
+                    <a class="media" href="{{ $link->link }}">
+                        <div class="media-body">
+                            <span class="media-heading">{{ $link->title }}</span>
+                        </div>
+                    </a>
+                @endforeach
             </div>
         </div>
     @endif
