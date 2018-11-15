@@ -16,7 +16,8 @@
 //    return view('welcome');
 //});
 
-Route::get('/','PagesController@root')->name('root');
+//Route::get('/','PagesController@root')->name('root');
+Route::get('/','TopicsController@index')->name('root');
 Route::get('/home', 'PagesController@root');
 Route::get('permission-denied', 'PagesController@permissionDenied')->name('permission-denied');
 
