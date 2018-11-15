@@ -48,6 +48,7 @@ class User extends Authenticatable
         notify as protected laravelNotify;
     }
     use HasRoles;
+    use Traits\ActiveUserHelper;
 
     /**
      * The attributes that are mass assignable.
