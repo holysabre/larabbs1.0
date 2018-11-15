@@ -18,6 +18,8 @@
 
 Route::get('/','PagesController@root')->name('root');
 Route::get('/home', 'PagesController@root');
+Route::get('permission-denied', 'PagesController@permissionDenied')->name('permission-denied');
+
 
 Route::post('common/editor_upload','CommonController@editorUpload')->name('common.editor_upload');
 
